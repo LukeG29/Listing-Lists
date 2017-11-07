@@ -1,0 +1,55 @@
+public class List {
+
+    private int listCode;
+    private  String listName;
+
+
+    public List(Builder builder) {
+        listCode = builder.listCode;
+        listName = builder.listName;
+ 
+    }
+
+    public static class Builder{
+        private int listCode;
+        private  String listName;
+
+        public Builder listName(String value){
+            this.listName = value;
+            return this;
+        }
+
+        public Builder studentNumber(int value){
+            this.listCode = value;
+            return this;
+        }
+
+        public List build(){
+            return new List(this);
+        }
+
+    }
+
+    public int getStudentNumber() {
+        return listCode;
+    }
+
+    public String getListName() {
+        return listName;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof List)) return false;
+
+        List list = (List) o;
+
+        return listCode == list.listCode;
+    }
+
+    @Override
+    public int hashCode() {
+        return listCode;
+    }
+}
